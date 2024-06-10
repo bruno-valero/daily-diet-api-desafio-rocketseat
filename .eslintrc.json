@@ -1,0 +1,12 @@
+{
+    "extends": [
+        "@rocketseat/eslint-config/node",
+        "plugin:vitest-globals/recommended"
+    ],
+    "rules": {
+        "prettier/prettier": ["error", {"singleQuote": true, "semi": false, "endOfLine": "auto"}],
+        "no-useless-constructor": "off",
+        "@typescript-eslint/ban-types": "error",
+        "@typescript-eslint/no-explicit-any": "error"        
+    }
+}
