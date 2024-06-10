@@ -31,4 +31,4 @@ jobs:
       - run: npm run test:e2e
         env:
           JWT_SECRET: secret-for-testing
-          DATABASE_URL_NEW: "postgresql://postgres:docker@localhost:5432/daily-diet?schema=public"
+          DATABASE_URL: "postgresql://postgres:docker@localhost:5432/daily-diet?schema=public"
