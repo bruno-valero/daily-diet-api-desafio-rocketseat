@@ -33,7 +33,7 @@ Confira a proposta do desafio no **[notion](https://efficient-sloth-d85.notion.s
   - [x] Melhor sequência de refeições dentro da dieta
 - [x] O usuário só pode visualizar, editar e apagar as refeições o qual ele criou
 
-## Requisitos Funcionais
+## Requisitos Não Funcionais
 
 - [x] Os dados deverão ser persistidos num banco de dados postgreSQL
 - [x] O Banco de dados em desenvolvimento deve ser usado através de um container do Docker
