@@ -2,6 +2,8 @@
 
 Nesse desafio será desenvolvido uma API para controle de dieta diária, a Daily Diet API.
 
+Confira a proposta do desafio no **[notion](https://efficient-sloth-d85.notion.site/Desafio-02-be7cdb37aaf74ba898bc6336427fa410#1256d50643f4408ca1f5e75811004c3a)**.
+
 ## Requisitos Funcionais
 
 - [x] Deve ser possível criar um usuário
