@@ -1,0 +1,89 @@
+@baseUrl = http://localhost:3000
+@authToken = {{authenticate.response.body.token}}
+
+# @name create_user
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "name": "bruno",
+    "email": "bruno@gmail.com",
+    "password": "123"
+}
+
+###
+
+# @name authenticate
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+    "email": "bruno@gmail.com",
+    "password": "123"
+}
+
+
+###
+
+# @name create_meal
+POST {{baseUrl}}/meals
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "name": "meal errado 2.2",
+    "description": "testing",
+    "isInDiet": false,
+    "dateTime": "2024-06-10T11:09:14.535Z"
+}
+
+###
+
+# @name list_meals
+GET {{baseUrl}}/meals?page=1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+
+
+###
+
+# @name update_meal
+PUT {{baseUrl}}/meals/49715768-da2f-49f5-9ff9-87a3d28ebcce
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "name": "meal test",
+    "description": "testing",
+    "isInDiet": false,
+    "dateTime": "2024-06-10T11:09:30.535Z"
+}
+
+
+
+### 
+
+# @name delete_meal
+DELETE {{baseUrl}}/meals/0e42f8d8-33c2-4490-856e-fa59fd25000e
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+
+
+
+###
+
+# @name find_meal_by_id
+GET {{baseUrl}}/meals/49715768-da2f-49f5-9ff9-87a3d28ebcce
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+
+###
+
+# @name get_user_metrics
+GET {{baseUrl}}/meals/metrics
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+

@@ -3,6 +3,7 @@ import UniqueEntityId from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/types/optional'
 
 export interface MealProps {
+  createdBy: UniqueEntityId
   name: string
   description: string
   dateTime: Date
@@ -11,7 +12,10 @@ export interface MealProps {
   updatedAt: Date | null
 }
 
-export type MealCreationProps = Optional<MealProps, 'createdAt' | 'updatedAt'>
+export type MealCreationProps = Omit<
+  Optional<MealProps, 'createdAt' | 'updatedAt'>,
+  'createdBy'
+> & { createdBy: string }
 
 export class Meal extends Entity<MealProps> {
   static create(props: MealCreationProps, id?: UniqueEntityId) {
@@ -20,6 +24,7 @@ export class Meal extends Entity<MealProps> {
         ...props,
         createdAt: props.createdAt ?? new Date(),
         updatedAt: props.updatedAt ?? null,
+        createdBy: new UniqueEntityId(props.createdBy),
       },
       id ?? new UniqueEntityId(),
     )
@@ -29,6 +34,10 @@ export class Meal extends Entity<MealProps> {
 
   touch() {
     this.props.updatedAt = new Date()
+  }
+
+  get createdBy() {
+    return this.props.createdBy
   }
 
   get name() {
